@@ -8,7 +8,7 @@ var browserSync = require('browser-sync');
 var cleanCSS = require('gulp-clean-css');
 
 var input = {
-  'css': 'resources/sass/app.scss',
+  'css': 'resources/sass/*/*.scss',
   'js' : 'resources/js/app.js'
 };
 
