@@ -8,7 +8,7 @@ var browserSync = require('browser-sync');
 var cleanCSS = require('gulp-clean-css');
 
 var input = {
-  'css': 'resources/sass/*/*.scss',
+  'css': 'resources/sass/app.scss',
   'js' : 'resources/js/app.js'
 };
 
@@ -36,7 +36,7 @@ gulp.task('build-js', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch(input.css, ['build-css']);
+  gulp.watch('resources/sass/*/*.scss', ['build-css']);
   gulp.watch(input.js, ['build-js']);
 });
 
