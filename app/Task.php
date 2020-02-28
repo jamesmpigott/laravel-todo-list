@@ -13,4 +13,12 @@ class Task extends Model
     protected $attributes = [
     	'completed' => false, 
     ];
+
+    protected $fillable = [
+    	'title',
+    	'description',
+    	'completed',
+    	'deadline',
+    ]; 
+
 }
