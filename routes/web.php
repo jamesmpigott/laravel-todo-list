@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// List tasks
+Route::get('/', 'TaskController@index')->name('index');
+
+// Add task
+Route::post('/add-task', 'TaskController@addTask')->name('addTask');
+
+// Remove task
+Route::delete('delete-task/{id}', 'TaskController@deleteTask')->name('deleteTask');
+
+// Update task
+Route::post('/update-task/{id}', 'TaskController@updateTask')->name('updateTask');
