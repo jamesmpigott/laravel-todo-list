@@ -24,4 +24,26 @@ class TaskController extends BaseController
     	$parameters['tasks'] = Task::orderBy('completed')->get();
         return view('index', $parameters);
     }
+
+    /**
+     * Add Task
+     *
+     * @param Request $request
+     *
+     * @return view $view
+     */
+    public function addTask(Request $request){
+        $task = Task::create([
+            'title' => $request->input('title'),
+            'description' => null,
+        ]);
+        $task->save();
+        
+        $parameters['task'] = $task;
+        $parameters['addedByAjax'] = true;
+
+        // Build html for new task and return it, to be appended via JS.  
+        $view = view('partial/task-item', $parameters)->render();
+        return $view;
+    }
 }
