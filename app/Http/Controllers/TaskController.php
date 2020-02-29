@@ -55,4 +55,20 @@ class TaskController extends BaseController
     public function deleteTask($id){
         Task::findOrFail($id)->delete();
     }
+
+    /**
+     * Update task with id
+     * 
+     * @param int $id 
+     */
+    public function updateTask(Request $request, $id){
+        
+        // Fixes weird issue where boolean passed to controller via AJAX is treated as a string by PHP
+        $isTaskCompleted = filter_var($request->input('completed'), FILTER_VALIDATE_BOOLEAN);
+
+        $task = Task::find($id);        
+        $task->completed = $isTaskCompleted;
+        $task->save();
+    }   
+
 }
