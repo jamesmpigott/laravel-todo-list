@@ -16,7 +16,7 @@ $(document).ready(function(){
 				'title': taskTitle
 			},
 			success: function(data){
-				$(data).appendTo('.todo-list').show('fast');
+				$(data).prependTo('.todo-list').show('fast');
 			}
 		});
 	});
