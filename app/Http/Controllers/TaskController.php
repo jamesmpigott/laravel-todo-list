@@ -46,4 +46,13 @@ class TaskController extends BaseController
         $view = view('partial/task-item', $parameters)->render();
         return $view;
     }
+
+    /**
+     * Delete task with id
+     *
+     * @param int $id
+     */
+    public function deleteTask($id){
+        Task::findOrFail($id)->delete();
+    }
 }
